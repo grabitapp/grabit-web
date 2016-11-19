@@ -32,7 +32,8 @@ var user = window.sessionStorage.getItem("username");
 </header>
 <main>
 <div class="task-name"></div>
-<div class="task-poster">by <a href="#" class="task-poster-link"></a></div>
+<div class="task-poster">by <a href="#" class="user-link"></a></div>
+<div class="grabber">grabbed by <a href="#" class="user-link"></a></div>
 <div class="task-description"></div>
 <div class="buttons">
 	<a class="button main"></a>
@@ -45,6 +46,14 @@ firebase.database().ref("tasks/" + id).on("value", function (data) {
 	document.querySelector(".task-poster a").textContent = data.val().poster;
 	document.querySelector(".task-poster a").href = "/user?" + data.val().poster;
 	document.querySelector(".task-description").textContent = data.val().description;
+
+	if (data.val().grabbed) {
+		document.querySelector(".grabber").style.display = "";
+		document.querySelector(".grabber a").textContent = data.val().grabbedBy;
+		document.querySelector(".grabber a").href = "/user?" + data.val().grabbedBy;
+	} else {
+		document.querySelector(".grabber").style.display = "none";
+	}
 
 	var mainButton = document.querySelector(".buttons .button.main");
 	mainButton.classList.remove("disabled");

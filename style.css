@@ -24,16 +24,20 @@ main {
 .task-poster {
 	font-weight: 300;
 	margin-top: 10px;
-	margin-bottom: 10px;
 }
-.task-poster-link {
+.grabber {
+	font-weight: 300;
+	margin-top: 10px;
+}
+.user-link {
 	font-weight: 400;
 	text-decoration: none;
 }
-.task-poster-link::after {
+.user-link::after {
 	content: ' \2192';
 }
 .task-description {
+	margin-top: 10px;
 	font-size: 1.2em;
 }
 
