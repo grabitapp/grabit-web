@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GrabIt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCskIAWEozzbq2qUm3YXe3i2cJp0TBi_Ag",
+    authDomain: "grabit-e26a4.firebaseapp.com",
+    databaseURL: "https://grabit-e26a4.firebaseio.com",
+    storageBucket: "",
+    messagingSenderId: "548667916114"
+  };
+  firebase.initializeApp(config);
+
+  var database = firebase.database();
+</script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<header>
+<span id="title">GrabIt</span>
+</header>
+<main>
+<div class="task-name">Walk the dog</div>
+<div class="task-poster">sammdot</div>
+<div class="task-description">[...]</div>
+<div class="buttons">
+	<a class="button main">Grab</a>
+	<a class="button">Back</a>
+</div>
+</main>
+</body>
+</html>
