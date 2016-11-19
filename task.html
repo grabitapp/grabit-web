@@ -7,17 +7,17 @@
 <link href="style.css" rel="stylesheet">
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCskIAWEozzbq2qUm3YXe3i2cJp0TBi_Ag",
-    authDomain: "grabit-e26a4.firebaseapp.com",
-    databaseURL: "https://grabit-e26a4.firebaseio.com",
-    storageBucket: "",
-    messagingSenderId: "548667916114"
-  };
-  firebase.initializeApp(config);
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyCskIAWEozzbq2qUm3YXe3i2cJp0TBi_Ag",
+	authDomain: "grabit-e26a4.firebaseapp.com",
+	databaseURL: "https://grabit-e26a4.firebaseio.com",
+	storageBucket: "",
+	messagingSenderId: "548667916114"
+};
+firebase.initializeApp(config);
 
-  var database = firebase.database();
+var database = firebase.database();
 </script>
 <style type="text/css">
 
@@ -28,13 +28,21 @@
 <span id="title">GrabIt</span>
 </header>
 <main>
-<div class="task-name">Walk the dog</div>
-<div class="task-poster">sammdot</div>
-<div class="task-description">[...]</div>
+<div class="task-name"></div>
+<div class="task-poster">by <a href="#" class="task-poster-link"></a></div>
+<div class="task-description"></div>
 <div class="buttons">
 	<a class="button main">Grab</a>
 	<a class="button">Back</a>
 </div>
 </main>
+<script type="text/javascript">
+firebase.database().ref("tasks/1").on("value", function (data) {
+	document.querySelector(".task-name").textContent = data.val().name;
+	document.querySelector(".task-poster a").textContent = data.val().poster;
+	document.querySelector(".task-poster a").href = "/user?" + data.val().poster;
+	document.querySelector(".task-description").textContent = data.val().description;
+})
+</script>
 </body>
 </html>

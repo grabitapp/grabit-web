@@ -22,8 +22,16 @@ main {
 	font-weight: 300;
 }
 .task-poster {
+	font-weight: 300;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+.task-poster-link {
+	font-weight: 400;
+	text-decoration: none;
+}
+.task-poster-link::after {
+	content: ' \2192';
 }
 .task-description {
 	font-size: 1.2em;
