@@ -85,8 +85,10 @@ firebase.database().ref("tasks/" + id).on("value", function (data) {
 function grabTask (id) {
 	firebase.database().ref("tasks/" + id).update({
 		grabbed: true,
-		grabbedBy: user
+		grabbedBy: user,
+		complete: false
 	});
+	firebase.database().ref("users/" + user + "/grabbedTasks/" + id).set(true);
 }
 </script>
 </body>
