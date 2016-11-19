@@ -65,3 +65,7 @@ main {
 .button.main:hover {
 	background-color: #A8D471;
 }
+.button.disabled {
+	background-color: #CCCCCC;
+	color: #666666;
+}

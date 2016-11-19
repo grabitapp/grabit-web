@@ -18,6 +18,9 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+
+var id = parseInt(window.location.search.substr(1));
+var user = window.sessionStorage.getItem("username");
 </script>
 <style type="text/css">
 
@@ -32,17 +35,50 @@ var database = firebase.database();
 <div class="task-poster">by <a href="#" class="task-poster-link"></a></div>
 <div class="task-description"></div>
 <div class="buttons">
-	<a class="button main">Grab</a>
-	<a class="button">Back</a>
+	<a class="button main"></a>
+	<a class="button" href="/tasks">Back</a>
 </div>
 </main>
 <script type="text/javascript">
-firebase.database().ref("tasks/1").on("value", function (data) {
+firebase.database().ref("tasks/" + id).on("value", function (data) {
 	document.querySelector(".task-name").textContent = data.val().name;
 	document.querySelector(".task-poster a").textContent = data.val().poster;
 	document.querySelector(".task-poster a").href = "/user?" + data.val().poster;
 	document.querySelector(".task-description").textContent = data.val().description;
-})
+
+	var mainButton = document.querySelector(".buttons .button.main");
+	mainButton.classList.remove("disabled");
+
+	if (data.val().poster == user) {
+		if (data.val().grabbed) {
+			mainButton.classList.add("disabled");
+			mainButton.textContent = "Grabbed";
+		} else {
+			mainButton.onclick = function () { deleteTask(id); };
+			mainButton.textContent = "Delete";
+		}
+	} else {
+		if (data.val().grabbed) {
+			if (data.val().grabbedBy == user) {
+				mainButton.onclick = function () { dropTask(id); };
+				mainButton.textContent = "Drop";
+			} else {
+				mainButton.classList.add("disabled");
+				mainButton.textContent = "Grabbed";
+			}
+		} else {
+			mainButton.onclick = function () { grabTask(id); };
+			mainButton.textContent = "Grab";
+		}
+	}
+});
+
+function grabTask (id) {
+	firebase.database().ref("tasks/" + id).update({
+		grabbed: true,
+		grabbedBy: user
+	});
+}
 </script>
 </body>
 </html>
