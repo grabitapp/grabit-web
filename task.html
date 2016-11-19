@@ -60,8 +60,8 @@ firebase.database().ref("tasks/" + id).on("value", function (data) {
 	} else {
 		if (data.val().grabbed) {
 			if (data.val().grabbedBy == user) {
-				mainButton.onclick = function () { dropTask(id); };
-				mainButton.textContent = "Drop";
+				mainButton.onclick = function () { completeTask(id); };
+				mainButton.textContent = "Complete";
 			} else {
 				mainButton.classList.add("disabled");
 				mainButton.textContent = "Grabbed";
