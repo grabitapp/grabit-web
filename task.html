@@ -90,6 +90,12 @@ function grabTask (id) {
 	});
 	firebase.database().ref("users/" + user + "/grabbedTasks/" + id).set(true);
 }
+
+function deleteTask (id) {
+	firebase.database().ref("tasks").child(id).remove();
+	firebase.database().ref("users/" + user + "/postedTasks").child(id).remove();
+	window.location.href = "/tasks";
+}
 </script>
 </body>
 </html>
