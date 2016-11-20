@@ -15,8 +15,9 @@ body {
 
 .intertext {
   color: black;
-  background-color: white;
   position: absolute;
+  margin-top:75px;
+  background-color: white;
   top: 300px;
   width: 70%;
   text-align: left;
