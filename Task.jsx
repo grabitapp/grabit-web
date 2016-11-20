@@ -55,12 +55,14 @@ class Task extends React.Component {
 
 	delete () {
 		firebase.database().ref("tasks").child(this.state.id).remove();
-		firebase.database().ref("users/" + user + "/postedTasks").child(this.state.id).remove();
+		firebase.database().ref("users/" + this.state.user + "/postedTasks").child(this.state.id).remove();
 		window.locaton.href = "tasks.html";
 	}
 
 	complete () {
-		firebase.database().ref("tasks/" + this.state.id).set({complete: true});
+		firebase.database().ref("tasks/" + this.state.id).update({
+			complete: true
+		});
 		firebase.database().ref("users/" + this.state.user + "/grabbedTasks").child(this.state.id).remove();
 		window.location.href = "tasks.html";
 	}

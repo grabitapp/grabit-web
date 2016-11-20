@@ -15,9 +15,9 @@
 <script type="text/babel">
 firebase.auth().onAuthStateChanged(function (user) {
 	if (user)
-		ReactDOM.render(<UserTaskListComponent user={user.email} />, document.getElementById("main"));
+		ReactDOM.render(<UserTaskListComponent user={user.email.replace(/\./g, "%2E")} />, document.getElementById("main"));
 	else
-		window.location.href = "/login"
+		window.location.href = "login.html"
 })
 </script>
 </head>

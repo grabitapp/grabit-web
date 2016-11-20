@@ -39,8 +39,12 @@
 
     <script>
 
+        var email
+
         firebase.auth().onAuthStateChanged(function (user) {
-            if (!user)
+            if (user)
+                email = user.email.replace(/\./g, "%2E")
+            else
                 window.location.href = "login.html"
         })
 
