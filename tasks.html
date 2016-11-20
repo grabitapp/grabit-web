@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>GrabIt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script>
+// Initialize Firebase
+var config = {
+	apiKey: "AIzaSyCskIAWEozzbq2qUm3YXe3i2cJp0TBi_Ag",
+	authDomain: "grabit-e26a4.firebaseapp.com",
+	databaseURL: "https://grabit-e26a4.firebaseio.com",
+	storageBucket: "",
+	messagingSenderId: "548667916114"
+};
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var id = parseInt(window.location.search.substr(1));
+var user = window.sessionStorage.getItem("username");
+</script>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+<header>
+<span id="title">GrabIt</span>
+</header>
+<main>
+<ul id="task-list">
+<li class="task">
+<div class="task-name"><a href="#"></a></div>
+<div class="task-poster">by <span class="user-link no-arrow"></span></div>
+</li>
+</ul>
+</main>
+<script type="text/javascript">
+function addTask (id, task) {
+	var div = document.createElement("li");
+	div.classList.add("task");
+
+	var taskName = document.createElement("div");
+	taskName.classList.add("task-name");
+
+	var taskNameLink = document.createElement("a");
+	taskNameLink.href = "/task?" + id;
+	taskNameLink.textContent = task.name;
+	taskName.appendChild(taskNameLink);
+	div.appendChild(taskName);
+
+	var taskPoster = document.createElement("div");
+	taskPoster.classList.add("task-poster");
+	taskPoster.textContent = "by ";
+	div.appendChild(taskPoster);
+
+	var userLink = document.createElement("span");
+	userLink.classList.add("user-link");
+	userLink.classList.add("no-arrow");
+	userLink.textContent = task.poster;
+	taskPoster.appendChild(userLink);
+
+	document.querySelector("#task-list").appendChild(div);
+}
+
+firebase.database().ref("tasks").on("value", function (data) {
+	var taskList = document.getElementById("task-list");
+	while (taskList.lastChild) {
+		taskList.removeChild(taskList.lastChild);
+	}
+
+	var tasks = data.val();
+	for (id in tasks) {
+		addTask(id, tasks[id]);
+	}
+});
+</script>
+</body>
+</html>

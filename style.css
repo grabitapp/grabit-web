@@ -21,6 +21,9 @@ main {
 	font-size: 2em;
 	font-weight: 300;
 }
+.task-name a {
+	text-decoration: none;
+}
 .task-poster {
 	font-weight: 300;
 	margin-top: 10px;
@@ -35,6 +38,9 @@ main {
 }
 .user-link::after {
 	content: ' \2192';
+}
+.user-link.no-arrow::after {
+	content: '';
 }
 .task-description {
 	margin-top: 10px;
@@ -72,4 +78,9 @@ main {
 .button.disabled {
 	background-color: #CCCCCC;
 	color: #666666;
+}
+
+#task-list {
+	list-style-type: none;
+	padding-left: 0;
 }
