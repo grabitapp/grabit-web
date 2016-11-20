@@ -20,7 +20,7 @@
 <main id="main">
 </main>
 <script type="text/babel">
-ReactDOM.render(<TaskComponent id={parseInt(window.location.search.substr(1))} user={window.sessionStorage.getItem("username")} />, document.getElementById("main"));
+ReactDOM.render(<Task id={parseInt(window.location.search.substr(1))} user={window.sessionStorage.getItem("username")} />, document.getElementById("main"));
 </script>
 </body>
 </html>

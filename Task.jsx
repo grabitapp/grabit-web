@@ -1,4 +1,4 @@
-class TaskComponent extends React.Component {
+class Task extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {id: props.id, user: props.user /* TODO */}
@@ -7,6 +7,26 @@ class TaskComponent extends React.Component {
 	render() {
 		var buttonText
 		var onClickFunction = function () {}
+		var disableButton = false
+
+		if (this.state.grabbed) {
+			if (this.state.grabbedBy == this.state.user) {
+				buttonText = "Complete"
+				onClickFunction = (function () { this.complete() }).bind(this)
+			} else {
+				buttonText = "Grabbed"
+				disableButton = true
+			}
+		} else {
+			if (this.state.poster == this.state.user) {
+				buttonText = "Delete"
+				onClickFunction = (function () { this.delete() }).bind(this)
+			} else {
+				buttonText = "Grab"
+				onClickFunction = (function () { this.grab() }).bind(this)
+			}
+		}
+
 		if (this.state.poster == this.state.user) {
 			if (this.state.grabbed) buttonText = "Grabbed"
 			else {
@@ -23,7 +43,6 @@ class TaskComponent extends React.Component {
 			}
 		}
 		var grabbed = <div className="grabber">grabbed by <a href="/profile?{this.state.grabbedBy}" className="user-link">{this.state.grabbedBy}</a></div>
-		var disableButton = this.state.grabbed && (this.state.poster == this.state.user || this.state.grabbedBy != this.state.user)
 		var button = <a className={"button main" + (disableButton ? "disabled" : "")} onClick={onClickFunction}>{buttonText}</a>
 		return (
 			<div>
