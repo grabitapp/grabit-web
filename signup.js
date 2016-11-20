@@ -33,17 +33,17 @@
   //  });
     
    //add signup event
-//console.log(btnSignup);
+console.log(btnSignup);
    btnSignup.addEventListener('click', e => {
         const email = txtEmail.value;
         const password = txtPassword.value;
        //Create user
        const auth = firebase.auth();
        const promise = auth.createUserWithEmailAndPassword(email, password);
-       window.location.href = "userLogin.html";
+     //  window.location.href = "userLogin.html";
         promise.catch(e => console.log(e.message));
         });
-
+btnSignup.addEventListener("click", e => window.location.href = "userLogin.html");
     
 //add a realtime listener
 //    firebase.auth().onAuthStateChanged(firebaseUser => {
