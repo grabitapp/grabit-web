@@ -1,0 +1,21 @@
+body {
+  line-height: 1.5; 
+  text-align: center;
+}
+
+.bar {
+  width: 45%;
+  height: 1px;
+  background-color:#6BCC08;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.userlogin {
+	padding-bottom: 5px;
+}
+
+.button {
+	padding-top: 2px;
+	padding-bottom: 5px;
+}
