@@ -61,6 +61,7 @@ firebase.database().ref("tasks").on("value", function (data) {
 
 	var tasks = data.val();
 	for (id in tasks) {
+		if (!parseInt(id)) continue;
 		var task = tasks[id];
 		if (!task.complete) {
 			addTask(id, tasks[id]);

@@ -2,11 +2,23 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>GRabit</title>
+    <title>GrabIt</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     </head>
+
 <body>
+
+ <header>
+        <span id="title">GrabIt</span>
+    </header>
+
+<h2> Log Into Your Account </h2>
+<div class = "bar"> </div>
+
  <h1 id = "Email"></h1>
  <h2 id = "password"></h2>
+
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -26,14 +38,23 @@
     dbref.on('value', snap => password.innerPassword = snap.val());
     
 </script>
+<div class="userlogin">
 <form action="" method="">
-    User Name:
+    Username:
     <input type="text" size="30"/>
     <br />
+</form>
+</div>
     Password:
     <input type="password" size="30" /> 
     <br />
+<<<<<<< HEAD
     <input type="submit" value="Log In"/>
+=======
+<div class="button">
+    <button id="btnLogin"> Log In </button>
+</div>
+>>>>>>> origin/master
     <br />
     <input type="submit" value="Sign Up"/>
      
