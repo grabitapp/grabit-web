@@ -29,6 +29,12 @@ main {
 	padding: 20px;
 }
 
+#question {
+	font-size: 300;
+	font-size: 1.5em;
+	margin-bottom: 20px;
+}
+
 .task-name {
 	font-size: 2em;
 	font-weight: 300;
