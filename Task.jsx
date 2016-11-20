@@ -33,7 +33,7 @@ class Task extends React.Component {
 		return (
 			<div>
 				<div className="task-name">{this.state.name}</div>
-				<div className="task-poster">by <a href={"profile.html?" + this.state.poster} className="user-link">{this.state.poster.replace(/%2E/, ".")}</a></div>
+				<div className="task-poster">by <a href={"profile.html?" + this.state.poster} className="user-link">{(this.state.poster || "").replace(/%2E/, ".")}</a></div>
 				{this.state.grabbed && grabbed}
 				<div className="task-description">{this.state.description}</div>
 				<div className="buttons">
