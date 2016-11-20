@@ -3,7 +3,7 @@ let txtPassword = document.getElementById('txtPassword');
 let btnLogin = document.getElementById('btnLogin');
 let btnSignupVirtual = document. getElementById('btnSignupVirtual');
 
-btnSignupVirtual.addEventListener("click", e => window.location.href = "/signup");
+btnSignupVirtual.addEventListener("click", e => window.location.href = "signup.html");
 
 //add login event
 btnLogin.addEventListener('click', e => {

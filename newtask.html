@@ -41,7 +41,7 @@
 
         firebase.auth().onAuthStateChanged(function (user) {
             if (!user)
-                window.location.href = "/login"
+                window.location.href = "login.html"
         })
 
         function submitClick(event) {
@@ -64,7 +64,7 @@
             grabbed:false
           });
 
-          window.location.href = "/task?" + nextid;
+          window.location.href = "task.html?" + nextid;
 
         })
       }

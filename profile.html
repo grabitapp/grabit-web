@@ -58,7 +58,7 @@ var username = window.location.search.substr(1);
 <script type="text/javascript">
 firebase.auth().onAuthStateChanged(function (user) {
     if (!user)
-        window.location.href = "/login"
+        window.location.href = "login.html"
 })
 
 firebase.database().ref("users/" + username).on("value", function (data) {
