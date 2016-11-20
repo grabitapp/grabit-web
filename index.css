@@ -47,7 +47,7 @@ header span#login {
 }
 
 .bar2 {
-  width: 30%;
+  width: 50%;
   height: 70px;
   background-color: #6BCC08;
   margin: auto;
@@ -55,9 +55,14 @@ header span#login {
   margin-bottom: 20px;
   text-align: center;
   color: white;
+  border-radius: 3px;
 }
 .signup {
   padding-top:10px;
+}
+.signup a {
+  color: white;
+  text-decoration: none;
 }
 
 main {

@@ -13,6 +13,11 @@ header {
 	background-color: #6BCC08;
 }
 
+header a {
+	text-decoration: none;
+	color: white;
+}
+
 main {
 	padding: 20px;
 }
