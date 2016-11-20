@@ -2,21 +2,33 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GrabIt</title>
 <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script type="text/javascript" src="firebase.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="login.css">
     </head>
 <body>
+    <header>
+     <span id="title">GrabIt</span>
+     </header>
+
+    <img src = "http://www.architech.ca/images/about/f342cf47.header.jpg" style="width: 100%">
+
     <div class="container">
     <h2> Log In! </h2>
+     <div class = "bar"> </div>
     <input id="txtEmail" type="email" placeholder="Email">
+     <br>
     <input id="txtPassword" type="password" placeholder="Password"> 
+     <br>
+     <br>
     <button id="btnLogin" class="btn btn-action">Log In</button> 
 
 <!--    <button id="btnSignup" class="btn btn-secondary" href="userSignup.html">Sign Up</button> -->
     </div>
-    <h2>Don't Have An Account Yet?</h2>
+    <h3>Don't Have An Account Yet?</h3>
     <button class="button main" id = "btnSignupVirtual">SIGN UP</button>
   <!--  <button id="btnSignup" href="userSignup.html">SIGN UP</button>-->
     <script src="login.js"></script>
