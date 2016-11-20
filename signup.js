@@ -44,6 +44,8 @@ console.log(btnSignup);
         promise.catch(e => console.log(e.message));
         });
 btnSignup.addEventListener("click", e => window.location.href = "userLogin.html");
+
+
     
 //add a realtime listener
 //    firebase.auth().onAuthStateChanged(firebaseUser => {
