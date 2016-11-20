@@ -11,13 +11,16 @@ h3 {
 	background-position: 50%, 50%;
 	background-attachment: fixed;
 	height: 350px;
-	width: 100%;
 	color: white;
     text-align: center;
     padding-bottom: 30px;
     background: -webkit-linear-gradient(to right
   rgba(255, 255, 255, 0.7) , rgba(34, 153, 84,0.5)
 );
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: -20px;
+    width: calc(100% + 40px);
 }
 
 img {
