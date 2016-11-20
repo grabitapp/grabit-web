@@ -14,8 +14,9 @@ class Task extends React.Component {
 				buttonText = "Complete"
 				onClickFunction = (function () { this.complete() }).bind(this)
 			} else {
-				buttonText = "Grabbed"
 				disableButton = true
+				if (this.state.complete) buttonText = "Completed"
+				else buttonText = "Grabbed"
 			}
 		} else {
 			if (this.state.poster == this.state.user) {
@@ -27,21 +28,6 @@ class Task extends React.Component {
 			}
 		}
 
-		if (this.state.poster == this.state.user) {
-			if (this.state.grabbed) buttonText = "Grabbed"
-			else {
-				buttonText = "Delete"
-				onClickFunction = (function () { this.delete() }).bind(this)
-			}
-		} else {
-			if (this.state.grabbed) {
-				if (this.state.grabbedBy == this.state.user) buttonText = "Complete"
-				else buttonText = "Grabbed"
-			} else {
-				buttonText = "Grab"
-				onClickFunction = (function () { this.grab() }).bind(this)
-			}
-		}
 		var grabbed = <div className="grabber">grabbed by <a href={"profile.html?" + this.state.grabbedBy} className="user-link">{this.state.grabbedBy}</a></div>
 		var button = <a className={"button main" + (disableButton ? "disabled" : "")} onClick={onClickFunction}>{buttonText}</a>
 		return (
@@ -71,6 +57,12 @@ class Task extends React.Component {
 		firebase.database().ref("tasks").child(this.state.id).remove();
 		firebase.database().ref("users/" + user + "/postedTasks").child(this.state.id).remove();
 		window.locaton.href = "tasks.html";
+	}
+
+	complete () {
+		firebase.database().ref("tasks/" + this.state.id).set({complete: true});
+		firebase.database().ref("users/" + this.state.user + "/grabbedTasks").child(this.state.id).remove();
+		window.location.href = "tasks.html";
 	}
 
 	componentDidMount() {
