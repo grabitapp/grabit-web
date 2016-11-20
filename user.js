@@ -31,9 +31,10 @@
         
         //Sign in
         const promise = auth.signInWithEmailAndPassword(email, password);
-        promise.catch(e => {
-            console.log(e.message);
+        promise.then(e => {
             window.location.href = "tasks.html";
+        }, e => {
+            console.log(e.message);
         });
 
   //    auth.onAuthStateChanged(user => {
