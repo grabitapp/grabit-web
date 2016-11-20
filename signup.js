@@ -14,7 +14,7 @@ console.log(btnSignup);
        //changes
        promise.then(e => {
           window.sessionStorage.setItem("username", email);
-           window.location.href = "/login"
+           window.location.href = "login.html"
        }, e => {
            window.alert(e.message);
        });
