@@ -14,7 +14,7 @@ console.log(btnSignup);
        //changes
        promise.then(e => {
           firebase.database().ref("users/" + email.replace(/\./g, "%2E")).set({
-            rating: 0;
+            rating: 0
           })
            window.location.href = "login.html"
        }, e => {
