@@ -42,12 +42,11 @@
 
     <script>
 
-        var submitBtn = document.getElementById("submit");
-        var tname = document.getElementById("tname");
-        var description = document.getElementById("description");
-
         function submitClick(event) {
           event.preventDefault();
+
+          var tname = document.getElementById("tname").value;
+          var description = document.getElementById("description").value;
 
           //callbacks
 
