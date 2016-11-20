@@ -74,7 +74,14 @@ firebase.database().ref("tasks").on("value", function (data) {
 
 	var tasks = data.val();
 	for (id in tasks) {
-		addTask(id, tasks[id]);
+		var task = tasks[id];
+		if (!task.complete) {
+			addTask(id, tasks[id]);
+		}
+	}
+
+	if (!taskList.hasChildNodes()) {
+		taskList.textContent = "No new tasks available at this time.";
 	}
 });
 </script>
