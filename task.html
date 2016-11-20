@@ -20,7 +20,10 @@
 <main id="main">
 </main>
 <script type="text/babel">
-ReactDOM.render(<Task id={parseInt(window.location.search.substr(1))} user={window.sessionStorage.getItem("username")} />, document.getElementById("main"));
+if (firebase.auth().currentUser)
+	ReactDOM.render(<Task id={parseInt(window.location.search.substr(1))} user={firebase.auth().currentUser.email} />, document.getElementById("main"));
+else
+	window.location.href = "/login";
 </script>
 </body>
 </html>

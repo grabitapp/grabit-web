@@ -13,7 +13,10 @@
 <script type="text/babel" src="TaskListTaskComponent.jsx"></script>
 <script type="text/babel" src="TaskListComponent.jsx"></script>
 <script type="text/babel">
-ReactDOM.render(<TaskListComponent user={window.sessionStorage.getItem("username")} />, document.getElementById("main"))
+if (firebase.auth().currentUser)
+	ReactDOM.render(<TaskListComponent user={firebase.auth().currentUser.email} />, document.getElementById("main"))
+else
+	window.location.href = "/login"
 </script>
 </head>
 <body>

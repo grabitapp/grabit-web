@@ -56,6 +56,9 @@ var username = window.location.search.substr(1);
     </main>
 
 <script type="text/javascript">
+if (!firebase.auth().currentUser)
+    window.location.href = "/login"
+
 firebase.database().ref("users/" + username).on("value", function (data) {
     document.getElementById("username").textContent = username;
     document.getElementById("realname").innerHTML = data.val().name ? "  " + data.val().name : "";
@@ -69,11 +72,6 @@ firebase.database().ref("users/" + username).on("value", function (data) {
     for (; i < 5; ++i)
         stars[i].classList.remove("filled");
 });
-
-function logout () {
-    window.localStorage.removeItem("username");
-    window.location.href = "/";
-}
 </script>
 
 </body>
