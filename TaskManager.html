@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <title>GrabIt</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+
+      <script src="firebase.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <header>
+        <span id="title">GrabIt</span>
+    </header>
+    <main>
+
+        <form onsubmit="submitClick(event)">
+
+            <label for="taskName">Task Name</label>
+            <input type="text" id="tname" name="taskname">
+
+            </br>
+
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description">
+
+            </br>
+
+            <input id = "submit" onclick = "submitClick(event)" type="submit" value="Submit">
+        </form>
+        <a class="button main">Grab</a>
+        <a class="button">Back</a>
+        </div>
+    </main>
+
+    <script>
+
+        var submitBtn = document.getElementById("submit");
+        var tname = document.getElementById("tname");
+        var description = document.getElementById("description");
+
+        function submitClick(event) {
+          event.preventDefault();
+
+          //callbacks
+
+          firebase.database().ref("tasks/nextid").once("value").then(function (data){
+          var nextid = parseInt(data.val());
+
+          firebase.database().ref("tasks/nextid").set(nextid + 1);
+
+          firebase.database().ref("tasks/" + nextid).set({
+            name:tname,
+            description: description,
+            grabbed:false
+          });
+
+          window.location.href = "task.html?" + nextid;
+
+        })
+      }
+
+      </script>
+
+
+</body>
+
+</html>
