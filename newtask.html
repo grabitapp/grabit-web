@@ -65,7 +65,7 @@
           firebase.database().ref("tasks/" + nextid).set({
             name:tname,
             description: description,
-            poster: firebase.auth().currentUser.email,
+            poster: email,
             grabbed:false
           });
 
