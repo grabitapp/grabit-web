@@ -40,6 +40,7 @@
        //Create user
        const auth = firebase.auth();
        const promise = auth.createUserWithEmailAndPassword(email, password);
+       window.location.href = "userLogin.html";
         promise.catch(e => console.log(e.message));
         });
 

@@ -14,9 +14,11 @@
     let txtEmail = document.getElementById('txtEmail');
     let txtPassword = document.getElementById('txtPassword');
     let btnLogin = document.getElementById('btnLogin');
+    let btnSignupVirtual = document. getElementById('btnSignupVirtual');
 //  let btnSignup = document.getElementById('btnSignup');
     
     console.log(btnLogin);
+    btnSignupVirtual.addEventListener("click", e => window.location.href = "userSignup.html");
 
     //add login event
     btnLogin.addEventListener('click', e => {
