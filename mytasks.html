@@ -10,10 +10,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.19.0/babel.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script type="text/javascript" src="firebase.js"></script>
-<script type="text/babel" src="TaskListTaskComponent.jsx"></script>
-<script type="text/babel" src="TaskListComponent.jsx"></script>
+<script type="text/babel" src="UserTaskListTaskComponent.jsx"></script>
+<script type="text/babel" src="UserTaskListComponent.jsx"></script>
 <script type="text/babel">
-ReactDOM.render(<TaskListComponent user={window.sessionStorage.getItem("username")} />, document.getElementById("main"))
+ReactDOM.render(<UserTaskListComponent user={window.sessionStorage.getItem("username")} />, document.getElementById("main"))
 </script>
 </head>
 <body>
@@ -22,10 +22,10 @@ ReactDOM.render(<TaskListComponent user={window.sessionStorage.getItem("username
 <span id="logout"><a href="#" onclick="logout()">Log Out</a></span>
 </header>
 <main>
-<div id="question">What do you want to do today?</div>
+<div id="question">This is what you have for today.</div>
 <div id="main"></div>
 <div class="buttons">
-	<a class="button main" href="/mytasks">My Tasks</a>
+	<a class="button main" href="/newtask">New Task</a>
 </div>
 </main>
 </body>
