@@ -31,23 +31,20 @@ body {
   margin-bottom: 20px;
 }
 
-.bar2 {
+.signup {
+  display: block;
   width: 50%;
-  height: 70px;
   background-color: #6BCC08;
   margin: auto;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   text-align: center;
   color: white;
   border-radius: 3px;
-}
-.signup {
-  padding-top:10px;
-}
-.signup a {
-  color: white;
   text-decoration: none;
+  font-size: 1.8em;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 main {
