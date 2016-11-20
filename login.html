@@ -17,7 +17,13 @@
     storageBucket: "",
     messagingSenderId: "80928384473"
   };
- 
+  firebase.initializeApp(config);
+    var  userName = document.getElementById('userName');
+    var dbref = firebase.database().ref().child('text');
+    dbref.on('value', snap => userName.innerText = snap.val());
+    var password = document.getElementById('password');
+    var dbref = firebase.database().ref().child('password');
+    dbref.on('value', snap => password.innerPassword = snap.val());
     
 </script>
 <form action="" method="">
@@ -27,13 +33,12 @@
     Password:
     <input type="password" size="30" /> 
     <br />
-    <button id="btnLogin"> Log In </button>
+    <input type="submit" value="Log In"/>
     <br />
-    <button id="btnSignup"> Sign Up </button>
+    <input type="submit" value="Sign Up"/>
      
 </form>
     
-  
     
     
     
