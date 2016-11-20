@@ -1,0 +1,28 @@
+h3 {
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 50px;
+  border-bottom: solid 2px black;
+}
+
+.background{
+	background:  url(http://www.city-data.com/forum/attachments/city-vs-city/105240d1356338901-greater-downtown-toronto-vs-greater-downtown-toronto-skyline-night-view.jpg);
+	background-size: cover;
+	background-position: 50%, 50%;
+	background-attachment: fixed;
+	height: 350px;
+	width: 100%;
+	color: white;
+    text-align: center;
+    padding-bottom: 30px;
+    background: -webkit-linear-gradient(to right
+  rgba(255, 255, 255, 0.7) , rgba(34, 153, 84,0.5)
+);
+}
+
+img {
+  margin-top:50px;
+  width: 250px;
+  height:250px;
+  border-radius: 10px;
+}
