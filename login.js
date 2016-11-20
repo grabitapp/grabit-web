@@ -15,7 +15,7 @@ btnLogin.addEventListener('click', e => {
     //Sign in
     const promise = auth.signInWithEmailAndPassword(email, password);
     promise.then(e => {
-        window.location.href = "/tasks";
+        window.location.href = "tasks.html";
     }, e => {
         window.alert(e.message);
     });
