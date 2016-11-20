@@ -5,89 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 <link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.19.0/babel.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script type="text/javascript" src="firebase.js"></script>
-<script type="text/javascript">
-var id = parseInt(window.location.search.substr(1));
-var user = window.sessionStorage.getItem("username");
-</script>
+<script type="text/babel" src="Task.jsx"></script>
 </head>
 <body>
 <header>
 <span id="title">GrabIt</span>
 <span id="login"><a href="#" onclick="logout()">Log Out</a></span>
 </header>
-<main>
-<div class="task-name"></div>
-<div class="task-poster">by <a href="#" class="user-link"></a></div>
-<div class="grabber">grabbed by <a href="#" class="user-link"></a></div>
-<div class="task-description"></div>
-<div class="buttons">
-	<a class="button main"></a>
-	<a class="button" href="/tasks">Back</a>
-</div>
+<main id="main">
 </main>
-<script type="text/javascript">
-firebase.database().ref("tasks/" + id).on("value", function (data) {
-	document.querySelector(".task-name").textContent = data.val().name;
-	document.querySelector(".task-poster a").textContent = data.val().poster;
-	document.querySelector(".task-poster a").href = "/profile?" + data.val().poster;
-	document.querySelector(".task-description").textContent = data.val().description;
-
-	if (data.val().grabbed) {
-		document.querySelector(".grabber").style.display = "";
-		document.querySelector(".grabber a").textContent = data.val().grabbedBy;
-		document.querySelector(".grabber a").href = "/profile?" + data.val().grabbedBy;
-	} else {
-		document.querySelector(".grabber").style.display = "none";
-	}
-
-	var mainButton = document.querySelector(".buttons .button.main");
-	mainButton.classList.remove("disabled");
-
-	if (data.val().poster == user) {
-		if (data.val().grabbed) {
-			mainButton.classList.add("disabled");
-			mainButton.textContent = "Grabbed";
-		} else {
-			mainButton.onclick = function () { deleteTask(id); };
-			mainButton.textContent = "Delete";
-		}
-	} else {
-		if (data.val().grabbed) {
-			if (data.val().grabbedBy == user) {
-				mainButton.onclick = function () { completeTask(id); };
-				mainButton.textContent = "Complete";
-			} else {
-				mainButton.classList.add("disabled");
-				mainButton.textContent = "Grabbed";
-			}
-		} else {
-			mainButton.onclick = function () { grabTask(id); };
-			mainButton.textContent = "Grab";
-		}
-	}
-});
-
-function grabTask (id) {
-	firebase.database().ref("tasks/" + id).update({
-		grabbed: true,
-		grabbedBy: user,
-		complete: false
-	});
-	firebase.database().ref("users/" + user + "/grabbedTasks/" + id).set(true);
-}
-
-function deleteTask (id) {
-	firebase.database().ref("tasks").child(id).remove();
-	firebase.database().ref("users/" + user + "/postedTasks").child(id).remove();
-	window.location.href = "/tasks";
-}
-
-function logout () {
-	window.localStorage.removeItem("username");
-	window.location.href = "/";
-}
+<script type="text/babel">
+ReactDOM.render(<TaskComponent id={parseInt(window.location.search.substr(1))} user={window.sessionStorage.getItem("username")} />, document.getElementById("main"));
 </script>
 </body>
 </html>
