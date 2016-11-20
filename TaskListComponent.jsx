@@ -20,7 +20,7 @@ class TaskListComponent extends React.Component {
 			var items = []
 			var tasks = data.val()
 			for (var id in tasks)
-				if (parseInt(id) && !tasks[id].complete)
+				if (parseInt(id) && !tasks[id].grabbed && !tasks[id].complete)
 					items.push(parseInt(id))
 			this.setState({tasks: items})
 		}.bind(this))
