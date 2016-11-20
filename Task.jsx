@@ -42,12 +42,12 @@ class Task extends React.Component {
 				onClickFunction = (function () { this.grab() }).bind(this)
 			}
 		}
-		var grabbed = <div className="grabber">grabbed by <a href="/profile?{this.state.grabbedBy}" className="user-link">{this.state.grabbedBy}</a></div>
+		var grabbed = <div className="grabber">grabbed by <a href={"/profile?" + this.state.grabbedBy} className="user-link">{this.state.grabbedBy}</a></div>
 		var button = <a className={"button main" + (disableButton ? "disabled" : "")} onClick={onClickFunction}>{buttonText}</a>
 		return (
 			<div>
 				<div className="task-name">{this.state.name}</div>
-				<div className="task-poster">by <a href="/profile?{this.state.poster}" className="user-link">{this.state.poster}</a></div>
+				<div className="task-poster">by <a href={"/profile?" + this.state.poster} className="user-link">{this.state.poster}</a></div>
 				{this.state.grabbed && grabbed}
 				<div className="task-description">{this.state.description}</div>
 				<div className="buttons">
