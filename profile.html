@@ -8,6 +8,11 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="profile.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+<script type="text/javascript" src="firebase.js"></script>
+<script type="text/javascript">
+var username = window.location.search.substr(1);
+</script>
 </head>
 
 <body>
@@ -22,52 +27,54 @@
     <div class="background">
 
         <img src="https://pbs.twimg.com/profile_images/738744285101580288/OUoCVEXG.jpg">
-        <div class="profile-name"><span id="realname">Barack Obama</span><span id="username">obama</span></div>
+        <div class="profile-name"><span id="username"></span><span id="realname"></span></div>
 
     </div>
 
     <div class="Rating">
 
         <div class="stars">
-            <img class="star" src="star.gif">
-            <img class="star" src="star.gif">
-            <img class="star" src="star.gif">
-            <img class="star" src="star.gif">
-            <img class="star" src="star.gif">
+            <img class="star">
+            <img class="star">
+            <img class="star">
+            <img class="star">
+            <img class="star">
         </div>
-
-        <h3> "He was amazing. Kind and easy to work with." </h3>
 
     </div>
 
     <section>
 
-        <h1> About me </h1>
-
-        <p>
-            They stood on the Edmund Pettus Bridge, as the blows of billy clubs rained down. Universities and states, including Illinois, are taking part in a divestment campaign to pressure the Sudanese government to stop the killings. The relationship between Islam
-        </p>
-        <p>
-            and the West includes centuries of co-existence and cooperation, but also conflict and religious wars. And it puts the lie to the notion that the separation of church and state in America means faith should have.
-
-        </p>
-
-        <p>
-            dmund Pettus Bridge, as the blows of billy clubs rained down. Universities and states, including Illinois
-        </p>
-
-        <h1> Skills </h1>
-
-        <p>n the Edmund Pettus Bridge, as the blo </p>
-        <p>n the Edmund Pettus Bridge, as the blo </p>
-        <p>n the Edmund Pettus Bridge, as the blo </p>
+        <h1>About Me</h1>
+        <p id="user-bio"></p>
 
     </section>
 
     <div class="buttons">
-    	<a class="button main">Back</a>
+    	<a class="button main" onclick="window.history.back()">Back</a>
     </div>
     </main>
+
+<script type="text/javascript">
+firebase.database().ref("users/" + username).on("value", function (data) {
+    document.getElementById("username").textContent = username;
+    document.getElementById("realname").innerHTML = data.val().name ? "  " + data.val().name : "";
+
+    document.getElementById("user-bio").textContent = data.val().bio || "No bio.";
+
+    var i;
+    var stars = Array.prototype.slice.call(document.querySelectorAll(".star"));
+    for (i = 0; i < data.val().rating; ++i)
+        stars[i].classList.add("filled");
+    for (; i < 5; ++i)
+        stars[i].classList.remove("filled");
+});
+
+function logout () {
+    window.localStorage.removeItem("username");
+    window.location.href = "/";
+}
+</script>
 
 </body>
 

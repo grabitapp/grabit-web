@@ -163,13 +163,12 @@ input[type=button], input[type=submit], input[type=reset] {
 	margin-top: 20px;
 	font-size: 1.4em;
 }
-.profile-name #realname {
+.profile-name #username {
 	font-weight: 500;
 }
-.profile-name #username {
+.profile-name #realname {
 	font-size: 0.8em;
 	font-weight: 300;
-	padding-left: 10px;
 }
 
 .rating {
@@ -186,4 +185,8 @@ input[type=button], input[type=submit], input[type=reset] {
 .star {
 	height: 30px;
 	width: auto;
+	content: url("star.gif");
+}
+.star.filled {
+	content: url("completed_star.png");
 }
