@@ -40,10 +40,18 @@ console.log(btnSignup);
        //Create user
        const auth = firebase.auth();
        const promise = auth.createUserWithEmailAndPassword(email, password);
+       //changes
+       promise.then(e => {
+           window.location.href = "userLogin.html"
+       }, e => {
+           console.log(e.message);
+       });
+   });
      //  window.location.href = "userLogin.html";
-        promise.catch(e => console.log(e.message));
-        });
-btnSignup.addEventListener("click", e => window.location.href = "userLogin.html");
+       // promise.catch(e => console.log(e.message));
+       // });
+//error
+//btnSignup.addEventListener("click", e => //window.location.href = "userLogin.html");
 
 
     
