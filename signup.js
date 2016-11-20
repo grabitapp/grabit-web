@@ -13,7 +13,6 @@ console.log(btnSignup);
        const promise = auth.createUserWithEmailAndPassword(email, password);
        //changes
        promise.then(e => {
-          window.sessionStorage.setItem("username", email);
            window.location.href = "/login"
        }, e => {
            window.alert(e.message);
