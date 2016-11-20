@@ -106,19 +106,6 @@ main {
 	border-bottom: 0;
 }
 
-
-#{
-    width: 93%;
-		margin-left: 30px;
-    height: 200px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-}
-
 #tname{
 	width: 93%;
 	margin-left: 30px;
@@ -170,4 +157,33 @@ input[type=button], input[type=submit], input[type=reset] {
 		margin-left: 30px;
 		margin-top: 30px;
 		font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.profile-name {
+	margin-top: 20px;
+	font-size: 1.4em;
+}
+.profile-name #realname {
+	font-weight: 500;
+}
+.profile-name #username {
+	font-size: 0.8em;
+	font-weight: 300;
+	padding-left: 10px;
+}
+
+.rating {
+	display: flex;
+	width: 100%;
+	height: auto;
+	padding:30px;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.stars {
+	text-align: center;
+}
+.star {
+	height: 30px;
+	width: auto;
 }
