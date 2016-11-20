@@ -31,13 +31,13 @@ var user = window.sessionStorage.getItem("username");
 firebase.database().ref("tasks/" + id).on("value", function (data) {
 	document.querySelector(".task-name").textContent = data.val().name;
 	document.querySelector(".task-poster a").textContent = data.val().poster;
-	document.querySelector(".task-poster a").href = "/user?" + data.val().poster;
+	document.querySelector(".task-poster a").href = "/profile?" + data.val().poster;
 	document.querySelector(".task-description").textContent = data.val().description;
 
 	if (data.val().grabbed) {
 		document.querySelector(".grabber").style.display = "";
 		document.querySelector(".grabber a").textContent = data.val().grabbedBy;
-		document.querySelector(".grabber a").href = "/user?" + data.val().grabbedBy;
+		document.querySelector(".grabber a").href = "/profile?" + data.val().grabbedBy;
 	} else {
 		document.querySelector(".grabber").style.display = "none";
 	}
