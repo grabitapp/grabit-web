@@ -1,0 +1,77 @@
+body {
+  line-height: 1.5; 
+}
+
+header span#title {
+  font-size: 1.4em;
+  color: white
+}
+header {
+  padding: 20px;
+  background-color: #6BCC08;
+}
+
+header span#login {
+  font-size: 1.4em;
+  color: white;
+  float:right;
+}
+
+.image {
+  background-image: url("http://rubikloud.com/wp-content/uploads/2016/02/feb-blog-1.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 500px;
+  position: relative;
+  margin-left: -20px;
+  margin-right: -20px;
+  margin-top: -20px;
+}
+
+.intertext {
+  color: black;
+  background-color: white;
+  position: absolute;
+  top: 300px;
+  width: 70%;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.bar {
+  width: 65%;
+  height: 1px;
+  background-color:#6BCC08;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.bar2 {
+  width: 30%;
+  height: 70px;
+  background-color: #6BCC08;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+.signup {
+  padding-top:10px;
+}
+
+main {
+  text-align: center;
+  margin: auto;
+}
+
+p {
+  max-width: 750px;
+  text-align: : center;
+  margin: auto;
+  margin-bottom: 20px
+}
+
+img {
+  width: 100%; 
+}
