@@ -3,8 +3,8 @@
 <head>
 <title>GrabIt</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+<link rel="stylesheet" type="text/css" href="style.css">
 <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 <script>
 // Initialize Firebase
@@ -22,9 +22,6 @@ var database = firebase.database();
 var id = parseInt(window.location.search.substr(1));
 var user = window.sessionStorage.getItem("username");
 </script>
-<style type="text/css">
-
-</style>
 </head>
 <body>
 <header>
