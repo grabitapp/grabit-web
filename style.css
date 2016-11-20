@@ -105,3 +105,69 @@ main {
 	padding-bottom: 0;
 	border-bottom: 0;
 }
+
+
+#{
+    width: 93%;
+		margin-left: 30px;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+#tname{
+	width: 93%;
+	margin-left: 30px;
+	height: 50px;
+	padding: 12px 20px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	resize: none;
+
+}
+
+#description{
+    width: 93%;
+		margin-left: 30px;
+    height: 200px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
+
+form {
+	margin-top:30px;
+}
+
+label {
+	margin-left: 30px;
+	font-family: "Roboto", Helvetica, Arial, sans-serif;
+	font-size: 50px;
+
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+	width: 93%;
+
+    background-color: #6BCC08;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+		border-radius: 3px;
+		text-transform: uppercase;
+		margin-left: 30px;
+		margin-top: 30px;
+		font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
