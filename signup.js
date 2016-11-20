@@ -13,6 +13,9 @@ console.log(btnSignup);
        const promise = auth.createUserWithEmailAndPassword(email, password);
        //changes
        promise.then(e => {
+          firebase.database().ref("users/" + email.replace(/\./g, "%2E")).set({
+            rating: 0;
+          })
            window.location.href = "login.html"
        }, e => {
            window.alert(e.message);
