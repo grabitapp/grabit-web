@@ -35,11 +35,42 @@ header span#login {
   float:right;
 }
 
+.image {
+  background-image: url("http://rubikloud.com/wp-content/uploads/2016/02/feb-blog-1.jpg");
+  background-size: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.intertext {
+  color: black;
+  background-color: white;
+  position: absolute;
+  top: 350px;
+  width: 70%;
+  text-align: left;
+}
+
 .bar {
-  width: 100%;
+  width: 65%;
   height: 1px;
   background-color:#6BCC08;
-  margin-bottom: 20px
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.bar2 {
+  width: 30%;
+  height: 70px;
+  background-color:#6BCC08;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+.signup {
+  padding-top:10px;
 }
 
 h1 {
