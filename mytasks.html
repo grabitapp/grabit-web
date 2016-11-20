@@ -13,10 +13,12 @@
 <script type="text/babel" src="UserTaskListTaskComponent.jsx"></script>
 <script type="text/babel" src="UserTaskListComponent.jsx"></script>
 <script type="text/babel">
-if (firebase.auth().currentUser)
-	ReactDOM.render(<UserTaskListComponent user={firebase.auth().currentUser.email} />, document.getElementById("main"))
-else
-	window.location.href = "/login";
+firebase.auth().onAuthStateChanged(function (user) {
+	if (user)
+		ReactDOM.render(<UserTaskListComponent user={user.email} />, document.getElementById("main"));
+	else
+		window.location.href = "/login"
+})
 </script>
 </head>
 <body>

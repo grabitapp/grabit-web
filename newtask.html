@@ -39,8 +39,10 @@
 
     <script>
 
-        if (!firebase.auth().currentUser)
-          window.location.href = "/login";
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!user)
+                window.location.href = "/login"
+        })
 
         function submitClick(event) {
           event.preventDefault();
