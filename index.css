@@ -2,21 +2,6 @@ body {
   line-height: 1.5; 
 }
 
-header span#title {
-  font-size: 1.4em;
-  color: white
-}
-header {
-  padding: 20px;
-  background-color: #6BCC08;
-}
-
-header span#login {
-  font-size: 1.4em;
-  color: white;
-  float:right;
-}
-
 .image {
   background-image: url("http://rubikloud.com/wp-content/uploads/2016/02/feb-blog-1.jpg");
   background-size: cover;

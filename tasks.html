@@ -15,7 +15,7 @@ var user = window.sessionStorage.getItem("username");
 <body>
 <header>
 <span id="title">GrabIt</span>
-<span id="login"><a href="/login">Log In</a></span>
+<span id="logout"><a href="#" onclick="logout()">Log Out</a></span>
 </header>
 <main>
 <ul id="task-list">
@@ -71,6 +71,11 @@ firebase.database().ref("tasks").on("value", function (data) {
 		taskList.textContent = "No new tasks available at this time.";
 	}
 });
+
+function logout () {
+	window.localStorage.removeItem("username");
+	window.location.href = "/";
+}
 </script>
 </body>
 </html>
