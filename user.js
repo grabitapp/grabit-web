@@ -11,7 +11,7 @@
     firebase.initializeApp(config);
     console.log('am i running')
     //get elements
-    let txtUserName = document.getElementById('txtUserName');
+    let txtEmail = document.getElementById('txtEmail');
     let txtPassword = document.getElementById('txtPassword');
     let btnLogin = document.getElementById('btnLogin');
 //    let btnSignup = document.getElementById('btnSignup');
@@ -21,14 +21,14 @@
     //add login event
     btnLogin.addEventListener('click', e => {
      //get username and password
-        const username = txtUserName.value;
+        const email = txtEmail.value;
         const password = txtPassword.value;
-        console.log(username)
+        console.log(email)
         console.log(password)
         const auth = firebase.auth();
 
         //Sign in
-        const promise = auth.signInWithEmailAndPassword(username, password);
+        const promise = auth.signInWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
     });
     
